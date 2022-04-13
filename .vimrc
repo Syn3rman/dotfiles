@@ -20,14 +20,9 @@ set shiftwidth=2
 set tags+=$HOME/tags/
 "set space as leader
 let mapleader=' '
-" hi Normal guibg=NONE ctermbg=NONE
-" let t:is_transparent = 0 
 set incsearch
 "Spell correction in md
 autocmd FileType markdown setlocal spell spelllang=en_gb
-"Use ctrl j,k to scroll up and down smoothly
-nnoremap <C-J> <C-E>
-nnoremap <C-K> <C-Y>
 "Switch between buffers with leader+b, number
 :nnoremap <Leader>b :buffers<CR>:buffer<Space>
 "ctrl to move between panes
@@ -35,12 +30,8 @@ nnoremap <M-J> <C-W><C-J>
 nnoremap <M-K> <C-W><C-K>
 nnoremap <M-L> <C-W><C-L>
 nnoremap <M-H> <C-W><C-H>
-"map alt key
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
-execute "set <M-l>=\el"
-execute "set <M-h>=\eh"
 
+"copy to system clipboard
 vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
 
 "Switch between  tabs using leader + arrow key
@@ -48,6 +39,10 @@ map <leader><up> :tabr<cr>
 map <leader><down> :tabl<cr>
 map <leader><left> :tabp<cr>
 map <leader><right> :tabn<cr>
+
+"open and close tabs
+nnoremap <C-T> :tabnew<cr>
+nnoremap <C-W> :tabclose<cr>
 
 call plug#begin()
 Plug 'preservim/nerdtree'
